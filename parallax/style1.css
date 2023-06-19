@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(#b500b5,#20bd00);
+    overflow-x: hidden;
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+    
+}
+header #logo{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    letter-spacing: 2px;
+    transform: translateX(-80px);
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+header ul li{
+    list-style: none;
+    margin-left: 30px;
+}
+header li a{
+    padding: 6px 12px;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    font-weight: 500;
+}
+header li a:hover,header li a.active{
+    background: #1aff00;
+    color: #ffffff;
+}
+#city{
+    
+    height: 100vh;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top,black,transparent);
+    z-index: 1000;
+
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    pointer-events: none;
+}
+section img.ima{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+section img#moon{
+    mix-blend-mode: screen;
+    height: 50%;
+    width: 50%;
+    filter: blur(3.5px);
+}
+section img#city{
+    z-index: 10;
+    width: 100%;
+
+    
+}
+section img#bridge{
+    z-index: 13;
+    height: 500px;
+    margin-top: 450px;
+    filter: contrast(500%);
+
+}
+#text{
+    right: -400px;
+    position: absolute;
+    color: white;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+    transform: translateY(-100px);
+}
+
+#button{
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: rgb(28, 236, 0);
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    z-index: 14;
+    transform: translateY(150px);
+
+
+}
+.sec{
+    position: relative;
+    padding: 100px;
+    background: linear-gradient(black,rgb(154, 0, 154));
+}
+.sec h2{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: white;
+
+}
+.sec p{
+    font-size: 1.2em;
+    color: white;
+}
+
+#train{
+    margin-top: 415px;
+    width: 800px;
+    height: 50px;
+    bottom: 80%;
+    transform: translateX(70%);
+    animation: train 15s linear infinite;
+    z-index: 12;
+    filter: contrast(500%);
+
+}
+@keyframes train{
+    0%{
+        transform: translateX(185%);
+    }
+    100%{
+        transform: translateX(-500%);
+    }
+}
+
+#train1{
+    margin-top: 415px;
+    width: 800px;
+    height: 100%;
+    height: 50px;
+    z-index: 11;
+    animation: train1 20s linear infinite;
+    filter: contrast(300%);
+}
+@keyframes train1{
+    0%{
+        transform: translateX(-185%);
+    }
+    100%{
+        transform: translateX(2000%);
+    }
+}
+#pl1{
+    height: 100%;
+    width: 100%;
+}
+
+section img#plane{
+    /* height: 5  0%; */
+    width: 25%;
+    z-index: 11;
+    margin-top: 150px;
+    margin-left: -500px;
+    filter: contrast(200%);
+    animation: plane 10s linear infinite;
+    position: absolute;
+   
+}
+@keyframes plane{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    25%{
+        transform: rotateZ(-2.5deg);
+    }
+    50%{
+        transform: rotateZ(-5deg);
+    }
+    75%{
+        transform: rotateZ(-2.5deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+
+}

@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <title>Create a dropdown with array rendered option</title>
+    <!-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"  rel="stylesheet" /> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+                body{
+            background: black;
+        }
+    .pie{
+        display: flex;
+        width: 50%;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+    }
+    #p1{
+        transform: translate(700px,300px);
+    }
+
+        #arrayDropdown1{
+            background-color: rgb(255, 0, 247);
+            color: white;
+            font-size: 25px;
+        }
+        #arrayDropdown2{
+            transform: translateY(50px);
+            background-color: rgb(247, 3, 255);
+            color: white;
+            font-size: 25px;
+
+        }
+        #di{
+            width: 30%;
+            height: 100px;
+            z-index: 2500;
+            position: absolute;
+            transform: translate(200px,-500px);
+        }
+        #pp{
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="#">Metro</a>
+        <ul>
+            <li><a href="index1.html" >Home</a></li>
+            <li><a href="index2.html" class="active">Book Tickets</a></li>
+            <li><a href="index3.html" id="expl">Explore</a></li>
+            <li><a href="">About us</a></li>
+        </ul> 
+        </header>
+        <div class="col-lg-14" id="sec">
+            <img src="C:\Users\admin\Desktop\wap\parallax\Images1\st3.jpg" id="st" class="img-fluid" style="filter: contrast(150%);">
+            <img src="C:\Users\admin\Desktop\wap\parallax\Images1\tf-removebg-preview1.png" id="ima" class="img-fluid">    
+    <div class="flex P-4 justify-evenly" id="di">
+        <p style="color: white;background: rgb(0, 0, 0);font-size: 25px;font-family: sans-serif;text-align: center;">Buy Ticket</p>
+        <p style="font-size: 25px;font-weight: 700; color: black;">From station</p>
+
+        <select id="arrayDropdown1" name="from" id="from" class="form-control form-control-right-pad"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-gray-100 rounded-lg  dark:border-l-gray-700 border-l-2 m-4"
+            onchange="showOptions1(this)">
+
+            <!-- <select id="arrayDropdown1" onchange="showOptions1(this)"> -->
+                
+                <option class="p-4" selected disabled>From</option>
+        </select>
+        <p id="pp" style="font-size: 25px;font-weight: 700;color: black;">To station</p>
+
+        <select id="arrayDropdown2" name="from" id="from" class="form-control form-control-right-pad"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  border-l-gray-100 dark:border-l-gray-700 border-l-2  m-4"
+            onchange="showOptions2(this)">
+
+            <!-- <select id="arrayDropdown2" onchange="showOptions2(this)"> -->
+            <option selected disabled>To</option>
+        </select>
+        <br><br><br>
+                <a href="" id="button">Buy Now</a>
+    </div>
+        </div>
+
+    <script>
+
+        var arr1 = ["Baiyappanahalli", "Majestic", "KSR","Magadi","Vijayanagar", "Attiguppe","Mysuru road","Pattanagere","Kengeri"];
+        var arr2 = ["Baiyappanahalli", "Majestic", "KSR","Magadi","Vijayanagar", "Attiguppe","Mysuru road","Pattanagere","Kengeri"];
+        fillOptions1(arr1);
+        fillOptions2(arr2);
+
+        function showOptions1(s) {
+            fillOptions1(arr1);
+            fillOptions2(arr2);
+            a = s[s.selectedIndex].value;
+            // alert(a);
+            arr3 = arr2.filter(function (e) { return e !== a })
+            options2 = `<option selected disabled>To</option>`
+            arr3.map((op, i) => {
+                options2 += `<option value="${op}" id="${i}">${op}</option>`
+                console.log(op);
+            })
+            document.getElementById("arrayDropdown2").innerHTML = options2;
+        }
+
+        function showOptions2(s) {
+            fillOptions1(arr1);
+            fillOptions2(arr2);
+            a = s[s.selectedIndex].value;
+            // arr3 = arr2.filter(function (e) { return e !== a })
+            // options1 = `<option selected disabled>From</option>`
+            // arr3.map((op, i) => {
+                // options1 += `<option value="${op}" id="${i}">${op}</option>`
+                // console.log(op);
+            // })
+            // document.getElementById("arrayDropdown1").innerHTML = options1;
+        }
+
+        function fillOptions1(arr1) {
+            globalThis.options1 = `<option selected disabled>From</option>`;
+            arr1.map((op, i) => {
+                options1 += `<option value="${op}" id="${i}">${op}</option>`
+            })
+        }
+
+        function fillOptions2(arr2) {
+            globalThis.options2 = `<option selected disabled>To</option>`;
+            arr2.map((op, i) => {
+                options2 += `<option class="bg-gray-50 border border-gray-300 text-gray-900 text-sm border-l-gray-100  dark:border-l-gray-700 border-l-2 m-4" value="${op}" id="${i}">${op}</option>`
+            })
+        }
+
+        document.getElementById("arrayDropdown1").innerHTML = options1;
+        document.getElementById("arrayDropdown2").innerHTML = options2;
+
+    </script>
+     <div class="pie">
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+        var data = [20, 55, 25];
+        var r = 300; // outer radius 
+        
+        var color = d3.scale.ordinal()
+          .range(["orange", "purple", "green"]);
+        
+        var svg = d3.select("body").append("svg")
+            .attr("width", 700)
+            .attr("height", 700);
+        
+        var group = svg.append("g")
+          .attr("transform", "translate(300, 300)"); // set center of pie to 300,300
+        
+        var arc = d3.svg.arc()
+          .innerRadius(150)
+          .outerRadius(r);
+        
+        var pie = d3.layout.pie()
+          .value(function(d) { return d; }); // pie function transform data into specific format
+        
+        var arcs = group.selectAll(".arc")
+          .data(pie(data))
+          .enter()
+          .append("g")
+            .attr("class", "arc");
+        
+        arcs.append("path")
+          .attr("d", arc) // here the arc function works on every record d of data 
+          .attr("fill", function(d){ return color(d.data); });
+        
+        arcs.append("text")
+          .attr("transform", function(d){ return "translate(" + arc.centroid(d) + ")"; }) // put text at the center of every arc
+          .attr("text-anchor", "middle")
+          .attr("font-size", "1.5em")
+          .text(function(d) {return d.data; });
+          
+        
+        </script>
+        <p id="p1"><span style="color: purple;font-size: 25px;">PURPLE:55% of the people are buying tickets via cash or UPI payment </span></p>
+        <p id="p1"><span style="color: green;font-size: 25px;">GREEN:25% of the people are using metro card for travelling in metro</span></p>
+        <p id="p1"><span style="color: orange;font-size: 25px;">ORANGE:10% of the people are using NammaMetro app for travelling in metro</span></p>
+
+        
+    </div>
+</body>
+
+</html>

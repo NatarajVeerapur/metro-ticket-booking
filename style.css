@@ -1,0 +1,92 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.contain{
+    width: 50%;
+    height: 50vh;
+}
+.hero{
+width: 100%;
+height: 100%;
+position: relative;
+background-image: url(sunset.png);
+background-size: cover;
+background-position: center;
+overflow: hidden;
+}
+.bridge{
+    height: 40%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+
+}
+.bri{
+    width: 100%;
+    position: absolute;
+    right: 0;
+    animation: bri 10s linear infinite;
+}
+@keyframes bri{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+.train{
+    width: 800px;
+    position: absolute;
+    bottom: 80%;
+    right: -75%;
+    transform: translateX(0%);
+}
+.train img{
+    height: 110px;
+    width: 100%;
+    right: -50;
+    animation: train 10s linear infinite;
+}
+@keyframes train{
+    0%{
+        transform: translateX(25%);
+    }
+    100%{
+        transform: translateX(-250%);
+    }
+}
+.lines{
+    right: -75%;
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    filter:grayscale();
+}
+.cloud{
+    height: 300px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    animation: cloud 10s linear infinite;
+    
+}
+@keyframes cloud{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(1000px);
+    }
+}
